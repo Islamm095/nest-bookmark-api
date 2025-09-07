@@ -1,0 +1,26 @@
+services:
+  dev-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    ports:
+      - "5435:5432"  # host:container
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+
+  test-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    ports:
+      - "5436:5432"  # host:container
+    volumes:
+      - test-db-data:/var/lib/postgresql/data
+
+volumes:
+  dev-db-data:
+  test-db-data:
